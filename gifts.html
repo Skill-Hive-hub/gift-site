@@ -19,26 +19,37 @@
 }
 
 body{
+    margin:0;
     min-height:100vh;
+
     background:linear-gradient(
     135deg,
     #ff9a9e,
     #fad0c4,
     #ffd1dc
     );
-    overflow:hidden;
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
 
+    overflow-x:hidden;
+    overflow-y:scroll;
+
+    position:relative;
+
+    padding:40px 15px;
+
+    display:block;
+}
 .container{
     width:100%;
     max-width:1200px;
+
+    margin:auto;
+
     text-align:center;
+
+    position:relative;
     z-index:2;
+
+    padding-bottom:120px;
 }
 
 h1{
@@ -57,8 +68,14 @@ h1{
 .gifts{
     display:flex;
     justify-content:center;
+    align-items:center;
     gap:30px;
+
     flex-wrap:wrap;
+
+    width:100%;
+
+    margin-top:30px;
 }
 
 .card{
@@ -155,6 +172,23 @@ h1{
 
     .title{
         font-size:24px;
+    }
+}
+
+@media(max-width:768px){
+
+    body{
+        padding-top:30px;
+        padding-bottom:120px;
+    }
+
+    .gifts{
+        flex-direction:column;
+    }
+
+    .card{
+        width:100%;
+        max-width:330px;
     }
 }
 
