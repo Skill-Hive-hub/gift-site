@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Memories ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1dc);
+    overflow-x:hidden;
+    padding:30px 15px;
+    text-align:center;
+}
+
+/* Header */
+
+h1{
+    font-family:'Dancing Script',cursive;
+    color:white;
+    font-size:60px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:white;
+    font-size:18px;
+    margin-bottom:40px;
+}
+
+/* Gallery */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.photo{
+    position:relative;
+    border-radius:25px;
+    overflow:hidden;
+    height:260px;
+    cursor:pointer;
+    transition:0.4s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.4s ease;
+}
+
+.photo:hover img{
+    transform:scale(1.1);
+}
+
+/* Overlay */
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+    color:white;
+    padding:15px;
+    font-size:16px;
+    text-align:left;
+}
+
+/* Floating hearts */
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:rgba(255,255,255,0.7);
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+/* Back button */
+
+.back{
+    margin-top:40px;
+    display:inline-block;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff4d88;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.back:hover{
+    transform:scale(1.05);
+}
+
+@media(max-width:500px){
+
+    h1{
+        font-size:45px;
+    }
+
+    .photo{
+        height:220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<h1>Our Memories ❤️</h1>
+
+<p class="subtitle">
+Some beautiful moments you can replace with your own photos 💖
+</p>
+
+<div class="gallery">
+
+<div class="photo">
+<img src="C:\Users\Phase-6 Cashier\Documents\Shahzaib Riaz\Gift Project\images\memory1.jpg" alt="memory1">
+<div class="overlay">Our First Memory ❤️</div>
+</div>
+
+<div class="photo">
+<img src="C:\Users\Phase-6 Cashier\Documents\Shahzaib Riaz\Gift Project\images\memory2.jpg" alt="memory2">
+<div class="overlay">Beautiful Moment 💖</div>
+</div>
+
+<div class="photo">
+<img src="C:\Users\Phase-6 Cashier\Documents\Shahzaib Riaz\Gift Project\images\memory3.jpg" alt="memory3">
+<div class="overlay">Special Memory 🌸</div>
+</div>
+
+<div class="photo">
+<img src="C:\Users\Phase-6 Cashier\Documents\Shahzaib Riaz\Gift Project\images\memory4.jpg" alt="memory4">
+<div class="overlay">Cute Memory 🥺</div>
+</div>
+
+</div>
+
+<button class="back" onclick="goBack()">← Back to Gifts</button>
+
+<script>
+
+/* Back */
+
+function goBack(){
+
+    document.body.style.opacity="0";
+
+    setTimeout(()=>{
+        window.location.href="gifts.html";
+    },400);
+}
+
+/* Hearts */
+
+const hearts =
+document.getElementById("hearts");
+
+function createHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML="❤️";
+
+    heart.style.left =
+    Math.random()*100+"vw";
+
+    heart.style.fontSize =
+    Math.random()*20+15+"px";
+
+    heart.style.animationDuration =
+    Math.random()*5+5+"s";
+
+    hearts.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },9000);
+}
+
+setInterval(createHeart,400);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:black;
+}
+
+/* VIDEO BACKGROUND */
+
+video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:1;
+    filter:brightness(0.6);
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+/* TITLE */
+
+h1{
+    font-family:'Dancing Script',cursive;
+    color:white;
+    font-size:60px;
+    margin-bottom:10px;
+    text-shadow:0 0 20px rgba(255,255,255,0.6);
+}
+
+/* TEXT */
+
+p{
+    color:white;
+    font-size:18px;
+    max-width:600px;
+    line-height:1.6;
+    margin-top:10px;
+}
+
+/* BUTTON */
+
+button{
+    margin-top:25px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d88;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* HEARTS */
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    color:rgba(255,255,255,0.7);
+    animation:float linear infinite;
+    z-index:3;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(-120vh);opacity:0;}
+}
+
+/* GLASS CARD */
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.2);
+    max-width:650px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+    h1{font-size:42px;}
+    p{font-size:15px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+<video id="bgVideo" autoplay muted loop playsinline>
+    <source src="assets/song.mp4" type="video/mp4">
+</video>
+
+<!-- HEARTS -->
+<div id="hearts"></div>
+
+<!-- CONTENT -->
+<div class="overlay">
+
+<div class="card">
+
+<h1>For You Alishba ❤️</h1>
+
+<p>
+This is not just a video…  
+It’s a feeling I could never explain in words.
+
+Every beat of this song carries a part of my heart for you.
+
+No matter where life goes, this will always be dedicated to you ❤️
+
+— Shahzaib
+</p>
+
+<button onclick="toggleSound()">🔊 Play / Pause Sound</button>
+
+</div>
+
+<button onclick="goEnding()">
+✨ One Last Surprise ❤️
+</button>
+
+<button onclick="goBack()">← Back to Gifts</button>
+
+</div>
+
+<script>
+
+const video =
+document.getElementById("bgVideo");
+
+let soundOn = false;
+
+function toggleSound(){
+
+    soundOn = !soundOn;
+
+    video.muted = !soundOn;
+}
+
+function goBack(){
+
+    document.body.style.opacity="0";
+
+    setTimeout(()=>{
+        window.location.href="gifts.html";
+    },500);
+}
+
+/* HEARTS */
+
+const hearts =
+document.getElementById("hearts");
+
+function createHeart(){
+
+    const h =
+    document.createElement("div");
+
+    h.classList.add("heart");
+
+    h.innerHTML="❤️";
+
+    h.style.left =
+    Math.random()*100+"vw";
+
+    h.style.fontSize =
+    Math.random()*20+15+"px";
+
+    h.style.animationDuration =
+    Math.random()*5+5+"s";
+
+    hearts.appendChild(h);
+
+    setTimeout(()=>h.remove(),9000);
+}
+
+setInterval(createHeart,300);
+
+function goEnding(){
+
+    document.body.style.opacity="0";
+
+    setTimeout(()=>{
+        window.location.href="ending.html";
+    },500);
+}
+
+</script>
+
+</body>
+</html>
